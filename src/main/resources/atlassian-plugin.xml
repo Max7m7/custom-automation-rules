@@ -1,0 +1,32 @@
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+        <param name="plugin-icon">/omv/jira/custom/automation/rule/images/plugin-icon.png</param>
+        <param name="plugin-logo">/omv/jira/custom/automation/rule/images/plugin-logo.png</param>
+    </plugin-info>
+
+    <!-- add our i18n resource -->
+    <resource type="i18n" name="i18n" location="/omv/jira/custom/automation/rule/custom-automation-rules"/>
+
+    <client-resource key="servicedesk-modules-automation-resources" name="Client resource">
+        <directory location="/omv/jira/custom/automation/rule/js/copy-custom-field-then"/>
+        <directory location="/omv/jira/custom/automation/rule/css"/>
+
+        <context>sd.project.admin</context>
+    </client-resource>
+
+    <!--Copy custom fields rule-->
+    <automation-rule-then-action key="copy-custom-fields"
+                                 class="omv.jira.custom.automation.rule.handler.then.CopyCustomFieldsThenAction"
+                                 name="Copy custom fields"
+                                 name-i18n-key="omv.jira.custom-automation-rules.then.name">
+        <icon-class>bp-jira</icon-class>
+        <requires>
+            <require>issue</require>
+        </requires>
+        <validator class="omv.jira.custom.automation.rule.handler.then.CopyCustomFieldsThenValidator"/>
+        <web-form-module>omv/jira/custom/automation/rule/js/copy-custom-field-then/copy-custom-field-action</web-form-module>
+    </automation-rule-then-action>
+</atlassian-plugin>

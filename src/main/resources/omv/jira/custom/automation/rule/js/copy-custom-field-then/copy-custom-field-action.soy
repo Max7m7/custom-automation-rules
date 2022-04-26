@@ -1,0 +1,35 @@
+{namespace ServiceDesk.myRules.CopyCustomFieldThen}
+/**
+ * Draw the container for the service desk Mail Notification
+ */
+{template .CopyCustomFieldContainer}
+    <div class="automation-servicedesk-copy-custom-field-then-action-container">
+    </div>
+{/template}
+
+/**
+ * Draw the contents of the Mail Notification form
+ * @param assetFieldId
+ * @param sourceFieldId
+ * @param targetFieldId
+ */
+{template .CopyCustomFieldForm}
+<form class="aui">
+    <div class="field-group">
+    <label for="asset-field-id">Asset field ID</label>
+        <input id="asset-field-id" value="{$assetFieldId}"/>
+    </div>
+
+    <div class="field-group">
+    <label for="source-field-id">Source field ID</label>
+        <input id="source-field-id" value="{$sourceFieldId}"/>
+    </div>
+
+    <div class="field-group">
+        <label for="target-field-id">Target field ID</label>
+        /*When validation error happens, it will be displayed after this element.
+        Notice: name="target-field" is a connecting link with validator.*/
+        <input id="target-field-id" name="target-field" value="{$targetFieldId}"/>
+    </div>
+</form>
+{/template}

@@ -1,0 +1,4 @@
+/*Adds vertical scrollbar to "THEN" window*/
+.component-details-panel {
+    overflow-y: auto;
+}
